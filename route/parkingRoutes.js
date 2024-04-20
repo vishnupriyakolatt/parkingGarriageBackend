@@ -1,8 +1,9 @@
 const express = require('express');
+const router = express.Router();
+const { Addslot,newslot } = require('../Controller/parkingcontroller');
 
 
-const parkingRoutes = express.Router();
+router.post('/addslot', Addslot);
+router.post('/newslot', newslot);
 
-
-
-module.exports=parkingRoutes;
+module.exports = router;

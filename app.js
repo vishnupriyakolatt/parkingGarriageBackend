@@ -14,12 +14,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 dbconnect.dbconnect();
-app.use(cors());
+app.use(cors({origin: "http://localhost:5173",
+methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+credentials: true,}));
 
 
 
 
-app.use("/",(req,res,next)=>{console.log(req.body)
+app.use("/",(req,res,next)=>{console.log("data recieved")
   next()})
 app.get("/",(req,res)=>res.send ("connectee"))
 app.use('/api/Parking', ParkingRoutes);
