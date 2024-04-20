@@ -1,3 +1,4 @@
+//Mongodb connection handling and setup
 const mongoose  = require("mongoose")
 const dotenv=require('dotenv')
 

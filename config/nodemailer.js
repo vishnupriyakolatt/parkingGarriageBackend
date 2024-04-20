@@ -1,4 +1,4 @@
-
+//Node mailer mailing service configuration
 const nodemailer =require('nodemailer')
 const dotenv =require('dotenv')
 dotenv.config()
