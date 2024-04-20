@@ -10,22 +10,21 @@ const newBookSchema = new Schema({
         type: String,
         required: true,
     },
-    Lid: {
-        type: String,
-        required: true,
-    },
     date: {
         type: Date, 
         default: Date.now, 
     },
     stime: {
-        type: Date, 
+        type: Number, 
         required: true,
     },
     etime: {
-        type: Date,
+        type: Number,
         required: true,
-    },
+    }
+}, {
+    timestamps: true 
 });
 
 module.exports = mongoose.model("newBook", newBookSchema);
+

@@ -1,14 +1,8 @@
-// parkingcontroller.js
+
 const slots = require("../models/slotBook");
 const newBook = require('../models/newBook'); 
 const Transporter = require("../config/nodemailer.js");
-// const mailTransporter=nodemailer.createTransport({
-//     service:'gmail',
-//     auth:{
-//       user: 'vishnupriyakolatt@gmail.com',
-//       pass: 'mbbfurrntmxzxwvn'
-//     },
-//   })
+
 const generateOTP = () => Math.floor(1000 + Math.random() * 9000).toString();
 
 const Addslot = async (req, res) => {
@@ -48,19 +42,16 @@ console.log(newSlot)
 
 
 const newslot = async (req, res) => {
-    const { carno, slotno, Lid, stime, etime } = req.body;
+    const { carno, slotno, stime, etime } = req.body;
+console.log(req.body)
 
     try {
-  
         const existingSlot = await slots.findOne({ slotno, carno });
-
+     console.log("exist"+existingSlot)
         if (existingSlot) {
-  
             const newBooking = new newBook({
                 carno: carno,
                 slotno: slotno,
-                Lid: Lid,
-                date: new Date(), 
                 stime: stime,
                 etime: etime,
             });
